@@ -73,6 +73,18 @@ void draw()
     text("Average time for each button + penalty: " + nf(((timeTaken)/(float)(hits+misses) + penalty),0,3) + " sec", width / 2, height / 2 + 140);
     return; //return, nothing else to do now test is over
   }
+  else if (trialNum + 1 < trials.size()) {
+   // Drawing the line to the next thing
+    Rectangle currentBounds = getButtonLocation(trials.get(trialNum));
+    Rectangle nextBounds = getButtonLocation(trials.get(trialNum + 1));
+    float startX = currentBounds.x + currentBounds.width/2;
+    float startY = currentBounds.y + currentBounds.height/2;
+    float endX = nextBounds.x + nextBounds.width/2;
+    float endY = nextBounds.y + nextBounds.height/2;
+    stroke(100, 100, 255, 150);
+    strokeWeight(3);
+    line(startX, startY, endX, endY);
+  }
 
   fill(255); //set fill color to white
   text((trialNum + 1) + " of " + trials.size(), 40, 20); //display what trial the user is on
