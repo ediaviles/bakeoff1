@@ -18,7 +18,7 @@ int hits = 0; //number of successful clicks
 int misses = 0; //number of missed clicks
 Robot robot; //initialized in setup 
 
-int r = 50; //circle radius
+int r = 21; //circle radius
 
 int numRepeats = 1; //sets the number of times each button repeats in the test
 
@@ -103,7 +103,7 @@ void mousePressed() // test to see if hit was in target!
 
  //check to see if mouse cursor is inside button 
  //update logic to see if mouse circle is inside button
-  if (((mouseX + r) > bounds.x && ((mouseX - r) < bounds.x + bounds.width)) && ((mouseY + r > bounds.y) && (mouseY - r < bounds.y + bounds.height))) // test to see if hit was within bounds
+  if (((mouseX ) > bounds.x && ((mouseX) < bounds.x + bounds.width)) && ((mouseY > bounds.y) && (mouseY < bounds.y + bounds.height))) // test to see if hit was within bounds
   {
     System.out.println("HIT! " + trialNum + " " + (millis() - startTime)); // success
     hits++; 
