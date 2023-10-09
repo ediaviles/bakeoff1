@@ -18,7 +18,7 @@ int hits = 0; //number of successful clicks
 int misses = 0; //number of missed clicks
 Robot robot; //initialized in setup 
 
-int r = 50; //circle radius
+int r = 21; //circle radius
 
 int numRepeats = 1; //sets the number of times each button repeats in the test
 
@@ -92,8 +92,8 @@ void draw()
   for (int i = 0; i < 16; i++)// for all button
     drawButton(i); //draw button
 
-  fill(255, 0, 0, 200); // set fill color to translucent red
-  ellipse(mouseX, mouseY, r, r); //draw user cursor as a circle with a diameter of 20
+  //fill(255, 0, 0, 200); // set fill color to translucent red
+  //ellipse(mouseX, mouseY, r, r); //draw user cursor as a circle with a diameter of 20
 }
 
 void mousePressed() // test to see if hit was in target!
@@ -115,7 +115,7 @@ void mousePressed() // test to see if hit was in target!
 
  //check to see if mouse cursor is inside button 
  //update logic to see if mouse circle is inside button
-  if (((mouseX + r) > bounds.x && ((mouseX - r) < bounds.x + bounds.width)) && ((mouseY + r > bounds.y) && (mouseY - r < bounds.y + bounds.height))) // test to see if hit was within bounds
+  if (((mouseX) > bounds.x && ((mouseX) < bounds.x + bounds.width)) && ((mouseY > bounds.y) && (mouseY < bounds.y + bounds.height))) // test to see if hit was within bounds
   {
     System.out.println("HIT! " + trialNum + " " + (millis() - startTime)); // success
     hits++; 
@@ -147,12 +147,17 @@ void drawButton(int i)
   
   if (trials.get(trialNum) == i) // see if current button is the target
     fill(0, 255, 255); // if so, fill cyan
-  else if (trialNum + 1 < trials.size() && trials.get(trialNum + 1) == i)
-    fill(#E0B0FF); // lightly color next button
+  else if (trialNum + 1 < trials.size() && trials.get(trialNum + 1) == i) {
+    stroke(224,176,255); // lightly color next button
+    strokeWeight(7);
+    fill(200); // if not, fill gray
+  }
   else
     fill(200); // if not, fill gray
 
   rect(bounds.x, bounds.y, bounds.width, bounds.height); //draw button
+  stroke(100, 100, 255, 150);
+  strokeWeight(3);
 }
 
 void mouseMoved()
