@@ -18,7 +18,7 @@ int hits = 0; //number of successful clicks
 int misses = 0; //number of missed clicks
 Robot robot; //initialized in setup 
 
-int r = 50; //circle radius
+int r = 21; //circle radius
 
 int numRepeats = 1; //sets the number of times each button repeats in the test
 
@@ -93,6 +93,7 @@ void draw()
     drawButton(i); //draw button
 
   fill(255, 0, 0, 200); // set fill color to translucent red
+  noStroke();
   ellipse(mouseX, mouseY, r, r); //draw user cursor as a circle with a diameter of 20
 }
 
