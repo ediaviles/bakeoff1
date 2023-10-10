@@ -148,7 +148,7 @@ void drawButton(int i)
   if (trials.get(trialNum) == i) // see if current button is the target
     fill(0, 255, 255); // if so, fill cyan
   else if (trialNum + 1 < trials.size() && trials.get(trialNum + 1) == i) {
-    stroke(224,176,255); // lightly color next button
+    stroke(224,0,0); // lightly color next button
     strokeWeight(7);
     fill(200); // if not, fill gray
   }
